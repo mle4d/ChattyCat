@@ -4,12 +4,12 @@ import { auth } from '../services/firebase.js';
 
 const ui = new firebaseui.auth.AuthUI(auth);
 
-class AuthApp extends component {
+class AuthApp extends Component {
 
     render() {
         const dom = this.renderDOM();
 
-        const header = new Header({ title: sigh up here });
+        const header = new Header({ title: 'sigh up here' });
         const main = dom.querySelector('main');
         dom.inserBefore(header.render(), main);
 
