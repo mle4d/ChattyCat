@@ -1,6 +1,7 @@
 import Component from '../src/Component.js';
+import ChatItem from './ChatItem.js';
 
-class component extends Component {
+class chat extends Component {
 
 }
 
@@ -8,7 +9,9 @@ class component extends Component {
 renderTemplate() {
     return /*html*/`
     <fieldset>Chat Rooms
-    <label>Chat: <input name=""></label>
+    <label>Chat: <input name="chatroom"></label>
     </fieldset>
     ` 
 }
+
+export default chat;
