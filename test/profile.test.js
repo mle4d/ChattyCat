@@ -8,7 +8,7 @@ test('renders with full user props', assert => {
     // arrange
     const user = {
         displayName: 'Narty Melson',
-        photoURL: 'https://lh5.googleusercontent.com/-EnRNBAYvURk/AAAAAAAAAAI/AAAAAAAAAK8/cMJNFAVX5SE/photo.jpg'
+        photoURL: 'https://images.vexels.com/media/users/3/155407/isolated/lists/84d636131360b843e427a4ff7061ae0a-striped-cat-avatar.png'
     };
     const profile = new Profile({ user });
     const expected = /*html*/`
