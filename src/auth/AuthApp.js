@@ -10,7 +10,7 @@ class AuthApp extends Component {
 
         const header = new Header({ title: 'sigh up here' });
         const main = dom.querySelector('main');
-        dom.inserBefore(header.render(), main);
+        dom.insertBefore(header.render(), main);
 
         const ui = new firebaseui.auth.AuthUI(auth);
 
