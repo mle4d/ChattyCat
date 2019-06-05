@@ -1,4 +1,4 @@
-import Component from '../src/Component.js';
+import Component from '../Component.js';
 import ChatItem from './ChatItem.js';
 
 

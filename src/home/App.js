@@ -1,7 +1,8 @@
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
-import ChatList from '../../chat/ChatList.js';
+import ChatList from '../chat/ChatList.js';
 import { chatroomsRef } from '../services/firebase.js';
+import AddChat from '../chat/AddChat.js';
 
 class App extends Component {
 
@@ -12,6 +13,10 @@ class App extends Component {
         const headerDOM = header.render();
 
         const main = dom.querySelector('main');
+
+        const addChat = new AddChat();
+        main.appendChild(addChat.render());
+
         const chatList = new ChatList({ chatrooms: [] });
         main.appendChild(chatList.render());
         dom.insertBefore(headerDOM, main);
@@ -19,7 +24,6 @@ class App extends Component {
         chatroomsRef
             .on('value', snapshot => {
                 const value = snapshot.val();
-                console.log(value);
                 const chatrooms = value ? Object.values(value) : [];
                 chatList.update({ chatrooms });
             });

@@ -1,4 +1,4 @@
-import component from '../src/Component.js';
+import component from '../Component.js';
 
 class ChatItem extends component {
     render() {
