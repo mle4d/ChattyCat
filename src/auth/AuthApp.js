@@ -20,7 +20,7 @@ class AuthApp extends Component {
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID
             ],
             signInSUccessUrl: './',
-            credentialHelper: firebaseui.authCredentialHelper.NONE
+            credentialHelper: firebaseui.auth.CredentialHelper.NONE,
         });
 
         return dom;
@@ -31,7 +31,9 @@ class AuthApp extends Component {
             <div>
                 <main>
                     <p>Sign in to chat about cats!</p>
+                    <div id="firebaseui-auth-container">
                         <!--firebaseui goeseth hereth -->
+                        </div>
                 </main>
             </div>
             `;
