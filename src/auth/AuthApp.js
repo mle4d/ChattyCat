@@ -2,7 +2,6 @@ import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import { auth } from '../services/firebase.js';
 
-const ui = new firebaseui.auth.AuthUI(auth);
 
 class AuthApp extends Component {
 
@@ -12,6 +11,8 @@ class AuthApp extends Component {
         const header = new Header({ title: 'sigh up here' });
         const main = dom.querySelector('main');
         dom.inserBefore(header.render(), main);
+
+        const ui = new firebaseui.auth.AuthUI(auth);
 
         ui.start('#firebaseui-auth-container', {
             signInOptions: [
