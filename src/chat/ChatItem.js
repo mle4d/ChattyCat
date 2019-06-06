@@ -1,16 +1,29 @@
-import component from '../Component.js';
+import Component from '../Component.js';
+import { auth, chatroomsRef } from '../services/firebase.js';
 
-class ChatItem extends component {
+class ChatItem extends Component {
     render() {
-        const chatItem = this.renderDOM();
-
-        return chatItem;
+        const dom = this.renderDOM();
+        const room = this.props.chat;
+        
+        const button = dom.querySelector('button');
+        if(button) {
+            button.addEventListener('click', () => {
+                chatroomsRef.child(room.key).remove();
+                
+            });
+        }
+        return dom;
     }
 
     renderTemplate() {
+        const chatTitle = this.props.chat.chat;
+        const isOwner = auth.currentUser.uid === this.props.chat.owner;
+        const button = isOwner ? '<button>delete</button>' : '';
         return /*html*/ `
             <li>
-            <a href="#">${this.props.title}</a>
+            <a href="#">${chatTitle}</a>
+            ${button}
             </li>
 
         `;
