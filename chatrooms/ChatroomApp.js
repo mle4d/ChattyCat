@@ -1,13 +1,12 @@
 import Component from '../src/Component.js';
 import Header from '../src/shared/Header.js';
-import { auth } from '../src/services/firebase.js';
 
 class ChatroomApp extends Component {
 
     render() {
         const dom = this.renderDOM();
 
-        const header = new Header({ title: 'join the conversation!'});
+        const header = new Header({ title: 'join the conversation!' });
         const main = dom.querySelector('main');
         dom.insertBefore(header.render(), main);
 

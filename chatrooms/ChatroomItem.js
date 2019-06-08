@@ -1,11 +1,19 @@
 import Component from '../Component.js';
-import { auth, chatroomsRef } from '../services/firebase.js';
+import { messagesRef } from '../src/services/firebase.js';
+
 
 class ChatroomItem extends Component {
     render() {
         const dom = this.renderDOM();
-        const room = this.props.chatroom;
+        const message = this.props.ChatroomItem;
 
+        const button = dom.querySelector('button');
+        if(button) {
+            button.addEventListener('click', () => {
+                messagesRef.child(message.key)();
+                
+            });
+        }
         return dom;
     }
 

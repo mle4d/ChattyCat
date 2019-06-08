@@ -17,7 +17,7 @@ class ChatroomList extends Component {
 
     renderTemplate() {
         return /*html*/ `
-        <ul id="chatroom">${chatTitle}
+        <ul id="chatroom">chat here
         </ul>
             `;
     }
