@@ -22,7 +22,7 @@ class ChatItem extends Component {
         const button = isOwner ? '<button>delete</button>' : '';
         return /*html*/ `
             <li>
-            <a href="#">${chatTitle}</a>
+            <a href="/chatroom.html#">${chatTitle}</a>
             ${button}
             </li>
 

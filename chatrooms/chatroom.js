@@ -1,6 +1,6 @@
-import '../utils/check-auth.js';
+import '../src/utils/check-auth.js';
 import ChatroomApp from './ChatroomApp.js';
-import { auth } from '../services/firebase.js';
+import { auth } from '../src/services/firebase.js';
 
 const root = document.getElementById('app');
 

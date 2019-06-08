@@ -3,6 +3,7 @@ import Header from '../shared/Header.js';
 import ChatList from '../chat/ChatList.js';
 import { chatroomsRef } from '../services/firebase.js';
 import AddChat from '../chat/AddChat.js';
+import ChatroomList from '../chatrooms/ChatroomList.js';
 
 class App extends Component {
 
@@ -28,6 +29,8 @@ class App extends Component {
                 chatList.update({ chatrooms });
             });
 
+        const chatroomList = new ChatroomList({ chatroom: [] });
+        main.appendChild(chatroomList.render());
 
         return dom;
     }
