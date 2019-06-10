@@ -1,16 +1,19 @@
-import Component from '../Component.js';
-import { messagesRef } from '../src/services/firebase.js';
+import Component from '../src/Component.js';
+import { messagesRef, auth } from '../src/services/firebase.js';
 
 
 class ChatroomItem extends Component {
     render() {
         const dom = this.renderDOM();
         const message = this.props.ChatroomItem;
+        const chatRooms = this.props.chatRooms;
 
-        const button = dom.querySelector('button');
-        if(button) {
+        if(chatRooms.uid === auth.currentUser.uid) {
+            const button = dom.querySelector('button');
             button.addEventListener('click', () => {
-                messagesRef.child(message.key)();
+                messagesRef.child(message.key)
+                    .child(chatRooms.key)
+                    .remove();
                 
             });
         }

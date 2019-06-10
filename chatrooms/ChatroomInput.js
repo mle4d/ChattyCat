@@ -1,36 +1,42 @@
 import component from '../Component.js';
-import { chatroomsRef, auth } from '../services/firebase.js';
+import { messagesRef, auth } from '../services/firebase.js';
 
 class ChatroomInput extends component {
 
     render() {
-        const form = this.renderDOM();
+        const dom = this.renderDOM();
+        const chatRooms = this.props.chatrooms;
+        const message = dom.querySelector('message');
 
-        form.addEventListener('submit', event =>{
+        dom.addEventListener('submit', event =>{
             event.preventDefault();
 
-            const formData = new FormData(form);
-            const roomRef = chatroomsRef.push();
+            const formData = new FormData(dom);
+            const chatRoomRef = messagesRef.child(chatRooms.key).push();
 
             const newChatMessage = {
                 chat: formData.get('chatmessage'),
                 owner: auth.currentUser.uid,
-                key: roomRef.key
+                key: chatRoomRef.key
+                //something for date probably goes here
 
 
             };
             
-            roomRef.set(newChatMessage);
+            chatRoomRef.set(newChatMessage).then(() => {
+                message.value = '';
+            });
 
-            form.reset();
+            dom.reset();
         });
-        return form;
+        return dom;
     }
 
     renderTemplate() {
         return /*html*/`
             <form class="add-message">
-                <label>Add new message<input type="text" name="chatmessage"></label>
+                <label>Add new message
+                <input type="text" name="chatmessage"></label>
                 <button>Submit</button>
             </form>
             `;
